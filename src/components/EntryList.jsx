@@ -1,15 +1,24 @@
+import { useLocation } from 'react-router-dom';
 import '../styles/EntryList.css'
 
 const EntryList = () => {
-
-    return  (
-        <div className="entryList_container">
-            <ul>
-                <li> 1</li>
-                <li> 2</li>
-                <li> 3</li>
-            </ul>
-        </div>
+    const location = useLocation();
+    const { newEntry } = location.state || {};
+  
+    return (
+      <div>
+        <h1>Journal Entry List 📜</h1>
+        {newEntry ? (
+          <div>
+            <p>Date: {newEntry.date}</p>
+            <p>Time: {newEntry.currentTime}</p>
+            <p>Author: {newEntry.author || "Anonymous"}</p>
+            <p>Content: {newEntry.content}</p>
+          </div>
+        ) : (
+          <p>No entry data available.</p>
+        )}
+      </div>
     )
 }
 

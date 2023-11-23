@@ -1,16 +1,19 @@
 import { useState } from "react";
-import '../styles/Entry.css'
+import "../styles/Entry.css";
+import { useNavigate } from "react-router-dom";
 
 const Entry = () => {
-  const [count, setCount] = useState(1);
-  const [entry, setEntry] = useState({
-    content: "",
-    date: new Date().toLocaleDateString(),
-    currentTime: ""
-  });
-  const [name, setName] = useState("");
-  const currentTime = new Date().toLocaleTimeString();
+    const currentTime = new Date().toLocaleTimeString();
 
+    const [entry, setEntry] = useState({
+        content: "",
+        date: new Date().toLocaleDateString(),
+        currentTime: currentTime,
+      });
+      const [count, setCount] = useState(1);
+      const [name, setName] = useState("");
+      const navigate = useNavigate();
+    
   const handleInputChange = (e) => {
     setEntry({
       ...entry,
@@ -25,17 +28,15 @@ const Entry = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setEntry({
+    const entries = JSON.parse(localStorage.getItem("entries")) || [];
+    const newEntry = {
       ...entry,
-      currentTime: currentTime,
-    });
-    const existingEntries = JSON.parse(localStorage.getItem("entries")) || [];
-    const updatedEntries = [
-      ...existingEntries,
-      { ...entry, author: name, currentTime: currentTime },
-    ];
+      author: name,
+    };
+    const updatedEntries = [...entries, newEntry];
     localStorage.setItem("entries", JSON.stringify(updatedEntries));
-    console.log("Entry submitted:", entry);
+    console.log("Entry submitted:", newEntry);
+    navigate("/list", { state: { newEntry } });
   };
 
   return (
@@ -67,7 +68,7 @@ const Entry = () => {
         </label>
 
         <footer>
-        <p>Date: {entry.date}</p>
+          <p>Date: {entry.date}</p>
           <p>Time: {entry.currentTime}</p>
           <p>Author: {name || "Anonymous"}</p>
         </footer>
