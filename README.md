@@ -6,14 +6,18 @@
 
 Users can : See a list of entries via `/list`
 
-Users can : Creat their own entries via `/new`
+Users can : Create their own entries via `/new`
 
->Users can input their name at the bottom of their entry
+>Users can add a name at the bottom of their entry
 >
->Users can see a time stamp of when the entry was submitted
+>Users can see a date and time stamp of when the entry was submitted
 >
->Upon form submission, inputs load onto `/list` and can be seen in the console - *implementing storage system*
+>Upon form submission, inputs load onto `/list` 
 >
-Users can : Navigate across the home page and the above pages
+>Users can : Navigate easily across pages
 
  
+_Features🥇_
+
+- form
+- local storage
