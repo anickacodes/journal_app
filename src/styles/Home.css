@@ -1,9 +1,30 @@
-
 .home_container {
-    border: 3px solid gold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-width: 3px;
+    border-style: double outset;
+    border-color: rgba(255, 217, 0, 0.523);
 }
 
 #psalm {
     border-radius: 28px;
-    height: 100%;
+    max-width: 58%;
+    margin-top: 35px;
+}
+
+article {
+    flex-grow: 1;
+    padding: 18px;
+    margin: 12px;
+}
+
+p {
+    color: bisque;
+    line-height: 2;
+}
+
+.verse-number {
+    font-weight: bold;
+    margin-right: 5px;
 }
