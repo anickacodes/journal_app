@@ -2,13 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 33px;
     border-width: 3px;
+    border-radius: 80px;
     border-style: double outset;
-    border-color: rgba(255, 217, 0, 0.523);
+    background-color: rgba(154, 133, 126, 0.2);
+    border-color: rgba(99, 225, 160, 0.409) rgba(212, 125, 59, 0.614) rgba(251, 229, 105, 0.588) rgba(43, 172, 105, 0.409);
 }
 
 #psalm {
-    border-radius: 28px;
+    border-radius: 22px;
     max-width: 58%;
     margin-top: 35px;
 }
@@ -17,11 +20,12 @@ article {
     flex-grow: 1;
     padding: 18px;
     margin: 12px;
+    
 }
 
 p {
     color: bisque;
-    line-height: 2;
+    line-height: 1.6;
 }
 
 .verse-number {
