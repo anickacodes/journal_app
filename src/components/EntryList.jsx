@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const EntryList = () => {
   const location = useLocation();
-  const { newEntry } = location.state || {};
+//   const { newEntry } = location.state || {};
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const EntryList = () => {
 
   const fetchEntries = () => {
     const storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
-    setEntries(storedEntries);
+    setEntries(storedEntries.reverse());
   };
 
   const handleDeleteEntry = (index) => {
@@ -30,7 +30,7 @@ const EntryList = () => {
   return (
     <div className="entriesContainer">
       <h1>Journal Entry List 📜</h1>
-      <ul>
+      <ol reversed>
         {entries.map((entry, index) => (
           <div key={index} className="entryCard">
             <li key={index}>
@@ -42,7 +42,7 @@ const EntryList = () => {
             <button onClick={() => handleDeleteEntry(index)}>Delete Entry</button>
           </div>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
