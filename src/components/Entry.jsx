@@ -57,11 +57,13 @@ const Entry = () => {
             onChange={handleInputChange}
             rows={30}
             cols={60}
+            placeholder="express yourself ... "
           />
         </label>
         <br />
-        <label>
-          Your Name:
+        <br />
+        <label id="yourName">
+          <em>Your Name or signee: </em> &nbsp;
           <input
             type="text"
             name="name"
@@ -69,7 +71,7 @@ const Entry = () => {
             onChange={handleNameChange}
           />
         </label>
-
+        <br />
         <footer>
           <p>Date: {entry.date}</p>
           <p>Time: {entry.currentTime}</p>
