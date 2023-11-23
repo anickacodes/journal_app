@@ -1,7 +1,24 @@
-
-.entry_container{
-    border: 1px solid white;
+.entry_container {
+    /* border: 1px solid white; */
     border-radius: 13px;
     margin: 22px;
     padding: 12px;
+    gap: 22px;
+}
+
+label,
+h1,
+h2 {
+    color: bisque;
+}
+
+textarea {
+    background-color: rgba(81, 176, 176, 0.18);
+    border-radius: 11px;
+}
+
+footer {
+    border: 2px dotted grey;
+    border-radius: 11px;
+
 }

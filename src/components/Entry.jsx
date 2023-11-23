@@ -26,6 +26,11 @@ const Entry = () => {
     setName(e.target.value);
   };
 
+  const getCount = () => {
+    const entries = JSON.parse(localStorage.getItem("entries")) || [];
+    return entries.length + 1;
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const entries = JSON.parse(localStorage.getItem("entries")) || [];
@@ -41,12 +46,10 @@ const Entry = () => {
 
   return (
     <div className="entry_container">
-      <h1>Journal Entry Form 📓</h1>
+      <h1>Journal Entry📓</h1>
 
       <form onSubmit={handleFormSubmit}>
-        <h2>Entry #{count} </h2>
-        <p>Date: {entry.date}</p>
-
+        <h2>Entry #{getCount()} </h2>
         <label>
           <textarea
             name="content"
