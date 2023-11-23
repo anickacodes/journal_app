@@ -1,5 +1,9 @@
 ## This is a react based journal app 
 
+[Journal to Freedom](https://journal-to-freedom.netlify.app/)
+
+
+
 Users can : See a list of entries via `/list`
 
 Users can : Creat their own entries via `/new`
