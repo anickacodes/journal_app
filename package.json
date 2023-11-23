@@ -24,7 +24,7 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "vite": "^5.0.0"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "description": "A front end app offering users ease and space to jot down mind boggling thoughts",
   "main": "vite.config.js",
   "keywords": [
     "journal",
