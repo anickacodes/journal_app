@@ -21,12 +21,14 @@ const EntryList = () => {
         <h1>Journal Entry List 📜</h1>
         <ul>
         {entries.map((entry, index) => (
+             <div key={index} className='entryCard'>
           <li key={index}>
             <p>Date: {entry.date}</p>
             <p>Time: {entry.currentTime}</p>
             <p>Author: {entry.author || "Anonymous"}</p>
             <p>Content: {entry.content}</p>
           </li>
+          </div>
         ))}
       </ul>
       </div>
