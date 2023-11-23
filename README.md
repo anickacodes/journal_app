@@ -1,6 +1,4 @@
-## This is a react based journal app 
-
-[Journal to Freedom](https://journal-to-freedom.netlify.app/)
+## [Journal to Freedom](https://journal-to-freedom.netlify.app/)
 
 
 
