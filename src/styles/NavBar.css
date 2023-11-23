@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    font-weight: 700;
+    color: #ff5c5c;
+    padding: 8px;
+    border-radius: 7px;
+}
+
+button:hover {
+    color: rgb(103, 173, 178);
+    padding: 11px;
+}
