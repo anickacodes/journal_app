@@ -1,8 +1,10 @@
-# React + Vite
+## This is a react based journal app 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Users can : See a list of entries via `/list`
+Users can : Creat their own entries via `/new`
+>Users can input their name at the bottom of their entry
+>Users can see a time stamp of when the entry was submitted
+>Upon form submission, inputs load onto `/list` and can be seen in the console - *implementing storage system*
+Users can : Navigate across the home page and the above pages
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ 
