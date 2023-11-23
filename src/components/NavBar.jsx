@@ -1,20 +1,25 @@
 import { Link } from "react-router-dom";
 import '../styles/NavBar.css'
-const NavBar = () => {
+
+
+const NavBar = ({ user }) => {
   return (
     <div className="nav">
-        <Link to={"/"}>
-        {" "}
-        <button>🏘️</button>
-      </Link>
-      <Link to={"/list"}>
-        {" "}
-        <button>All Entries</button>
-      </Link>
-      <Link to={"/new"}>
-        {" "}
-        <button>New Entry</button>
-      </Link>
+        <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/list">Entry List</Link></li>
+        {user ? (
+          <>
+            <li><Link to="/new">New Entry</Link></li>
+         
+            <li><Link to="/logout">Logout</Link></li>
+          </>
+        ) : (
+          <li><Link to="/login">Login</Link></li>
+        )}
+      </ul>
+    </nav>
     </div>
   );
 };
