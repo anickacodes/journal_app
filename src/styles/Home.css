@@ -2,3 +2,8 @@
 .home_container {
     border: 3px solid gold;
 }
+
+#psalm {
+    border-radius: 28px;
+    height: 100%;
+}
