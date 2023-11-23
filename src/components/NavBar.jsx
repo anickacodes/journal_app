@@ -6,17 +6,11 @@ const NavBar = ({ user, onLogout }) => {
   const navigate = useNavigate();
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const handleLogout = () => {
-    setShowConfirmation(true);
-  };
-
-  const confirmedLogOut = () => {
-    onLogout();
-    setShowConfirmation(false);
-    navigate("/");
-  };
-
-  const cancelLogout = () => {
+  const handleLogout = (confirmed) => {
+    if (confirmed) {
+      onLogout();
+      navigate("/");
+    }
     setShowConfirmation(false);
   };
 
