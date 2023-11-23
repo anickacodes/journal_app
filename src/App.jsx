@@ -15,14 +15,20 @@ function App() {
     setUser(userData);
   };
 
+  const handleLogout = (userData) => {
+    setUser(null)
+    alert('Successfully logged out; See you next time')
+
+  }
+
   return (
     <>
       <Router>
-        <NavBar user={user} />
+        <NavBar user={user} onLogout={handleLogout}/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/new" element={<Entry />} />
-          <Route path="/list" element={<EntryList />} />
+          <Route path="/new" element={<Entry user={user}/>} />
+          <Route path="/list" element={<EntryList user={user} />} />
           <Route path="/login" element={<LogIn onLogin={handleLogin} />} />
         </Routes>
       </Router>
