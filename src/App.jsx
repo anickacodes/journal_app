@@ -8,26 +8,22 @@ import LogIn from "./components/LogIn";
 import { useState } from "react";
 
 function App() {
-
   const [user, setUser] = useState(null);
-
   const handleLogin = (userData) => {
     setUser(userData);
   };
 
-  const handleLogout = (userData) => {
-    setUser(null)
-    alert('Successfully logged out; See you next time')
-
-  }
+  const handleLogout = () => {
+    setUser(null);
+  };
 
   return (
     <>
       <Router>
-        <NavBar user={user} onLogout={handleLogout}/>
+        <NavBar user={user} onLogout={handleLogout}  />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/new" element={<Entry user={user}/>} />
+          <Route path="/new" element={<Entry user={user} />} />
           <Route path="/list" element={<EntryList user={user} />} />
           <Route path="/login" element={<LogIn onLogin={handleLogin} />} />
         </Routes>
