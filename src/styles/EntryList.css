@@ -15,9 +15,10 @@
 
 ul {
     list-style-type:decimal;
+    color: white;
 }
 
 li::before {
-    content: '🔹'; /* You can use any Unicode character or emoji here */
-    margin-right: 8px; /* Adjust the spacing as needed */
+    content: '🔹'; 
+    margin-right: 8px; 
   }
