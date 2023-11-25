@@ -4,7 +4,7 @@
     align-items: center;
     margin: 33px;
     border-width: 3px;
-    border-radius: 80px;
+    border-radius: 18px;
     border-style: double outset;
     background-color: rgba(154, 133, 126, 0.2);
     border-color: rgba(99, 225, 160, 0.409) rgba(212, 125, 59, 0.614) rgba(251, 229, 105, 0.588) rgba(43, 172, 105, 0.409);
@@ -12,8 +12,8 @@
 
 #psalm {
     border-radius: 22px;
-    max-width: 58%;
-    margin-top: 35px;
+    max-width: fit-content;
+    /* margin-top: 35px; */
 }
 
 article {
