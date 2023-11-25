@@ -44,10 +44,29 @@ const Entry = () => {
     navigate("/list", { state: { newEntry } });
   };
 
+
+  const handleTextBold = () => {
+    setEntry({
+      ...entry,
+      content: `<b>${entry.content}</b>`,
+    });
+  };
+
+  const handleTextItalic = () => {
+    setEntry({
+      ...entry,
+      content: `<i>${entry.content}</i>`,
+    });
+  };
+
+
   return (
     <div className="entry_container">
       <h1>Journal Entry📓</h1>
-
+      {/* <div>
+        <button onClick={handleTextBold}>Bold</button>
+        <button onClick={handleTextItalic}>Italic</button>
+      </div> */}
       <form onSubmit={handleFormSubmit}>
         <h2>Entry #{getCount()} </h2>
         <label>

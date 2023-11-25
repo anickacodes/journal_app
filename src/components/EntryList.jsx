@@ -35,9 +35,9 @@ const EntryList = () => {
           <div key={index} className="entryCard">
             <li key={index}>
               <p>Date: {entry.date}</p>
+              <p>Content: {entry.content}</p>
               <p>Time: {entry.currentTime}</p>
               <p>Author: {entry.author || "Anonymous"}</p>
-              <p>Content: {entry.content}</p>
             </li>
             <button onClick={() => handleDeleteEntry(index)}>Delete Entry</button>
           </div>
