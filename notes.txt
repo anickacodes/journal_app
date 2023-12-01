@@ -1,4 +1,4 @@
-logout should redirect to home
+logout should redirect to home ✅
 
 users should only be able to see their entries - unless they make it public 
 

@@ -15,4 +15,12 @@ button:hover {
     padding: 11px;
 }
 
+li {
+    margin: 20px;
+}
+
+li::before {
+    content: '🔹';
+    margin-right: 8px;
+}
   

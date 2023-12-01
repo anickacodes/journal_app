@@ -20,11 +20,3 @@ ol {
     grid-template-columns: repeat(3, 1fr);
 }
 
-li {
-    margin: 20px;
-}
-
-li::before {
-    content: '🔹';
-    margin-right: 8px;
-}

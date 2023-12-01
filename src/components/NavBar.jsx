@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
-import {useState } from "react";
+import { useState } from "react";
 
 const NavBar = ({ user, onLogout }) => {
   const navigate = useNavigate();
@@ -13,7 +13,6 @@ const NavBar = ({ user, onLogout }) => {
     setShowConfirmation(false);
   };
 
-
   return (
     <div className="nav">
       <nav>
@@ -24,21 +23,17 @@ const NavBar = ({ user, onLogout }) => {
           <li>
             <Link to="/list">Entry List</Link>
           </li>
-
           {user ? (
-            <>
+            <div className="user-menu">
               <li>
                 <Link to="/new">New Entry</Link>
               </li>
-              <li>
-                <button onClick={() => setShowConfirmation(true)}>
-                  Logout
-                </button>
-              </li>
-            </>
+              <h2>Welcome, {user.username}!</h2>
+              <button onClick={() => setShowConfirmation(true)}>Logout</button>
+            </div>
           ) : (
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/users/login">Login</Link>
             </li>
           )}
         </ul>
