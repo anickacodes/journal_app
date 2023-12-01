@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 .env
-notes.txt
+
+
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +25,5 @@ notes.txt
 *.njsproj
 *.sln
 *.sw?
+
+notes.txt
