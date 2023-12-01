@@ -11,7 +11,6 @@ const LogIn = ({ onLogin }) => {
     e.preventDefault();
 
     const userData = { username, password };
-    console.log("user data", userData);
 
     try {
       const res = await fetch(`${API}/users/login`, {
@@ -21,7 +20,6 @@ const LogIn = ({ onLogin }) => {
         },
         body: JSON.stringify(userData),
       });
-      console.log(res, "res");
       if (res.ok) {
         console.log("Login successful");
         onLogin(userData);
