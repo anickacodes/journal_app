@@ -21,6 +21,7 @@ const LogIn = ({ onLogin }) => {
         body: JSON.stringify(userData),
       });
       if (res.ok) {
+        const data = await res.json();
         console.log("Login successful");
         onLogin(userData);
         navigate("/");
