@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles/LogIn.css";
 
 const LogIn = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ const LogIn = ({ onLogin }) => {
       });
       if (res.ok) {
         const data = await res.json();
-        
+
         console.log("Login successful");
         onLogin(userData);
         navigate("/");
@@ -38,7 +39,7 @@ const LogIn = ({ onLogin }) => {
     <>
       <div className="loginContainer">
         <h1>Login</h1>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} className="loginForm">
           <label>
             Username:
             <input
