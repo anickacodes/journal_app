@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ onRegister, navigate }) => {
+const Register = ({ onRegister }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const API = import.meta.env.VITE_PORT;
+const navigate = useNavigate()
   const handleRegistration = async (e) => {
     e.preventDefault();
     const userData = { username, email, password };
@@ -17,17 +19,27 @@ const Register = ({ onRegister, navigate }) => {
         },
         body: JSON.stringify(userData),
       });
-
       if (response.ok) {
-        console.log("User registered successfully!", userData);
-        onRegister(navigate("/login"));
+        const data = await response.json();
+        console.log("Registration successful:", data);
+          navigate('/users/login')
+
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        console.error("Registration failed:", errorData.message);
       } else {
-        console.error("Error registering user");
+        console.error("Registration failed:", response.statusText);
       }
+    //   if (response.ok) {
+    //     console.log("User registered successfully!", userData);
+    //     onRegister(navigate("/login"));
+    //   } else {
+    //     console.error("Error registering user");
+    //   }
     } catch (error) {
       console.error("Network error:", error);
     }
-  };
+  }
 
   return (
     <div className="registerContainer">
@@ -73,3 +85,5 @@ const Register = ({ onRegister, navigate }) => {
 };
 
 export default Register;
+
+

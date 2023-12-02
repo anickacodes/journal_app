@@ -38,7 +38,7 @@ const LogIn = ({ onLogin }) => {
   return (
     <>
       <div className="loginContainer">
-        <h1>Login</h1>
+        <h1>Open Journal </h1>
         <form onSubmit={handleLogin} className="loginForm">
           <label>
             Username:
@@ -46,7 +46,8 @@ const LogIn = ({ onLogin }) => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-            />
+              required
+            /> 
           </label>
           <br />
           <label>
@@ -55,9 +56,11 @@ const LogIn = ({ onLogin }) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </label>
           <br />
+         Username and password case-sensitive
           <button type="submit" disabled={!username || !password}>
             Login
           </button>

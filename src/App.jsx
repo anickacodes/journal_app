@@ -10,7 +10,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Entry from "./components/Entry";
 import LogIn from "./components/LogIn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Register from "./components/Register";
 
@@ -19,10 +19,12 @@ function App() {
 
   const handleLogin = (userData) => {
     setUser(userData);
+    localStorage.setItem("jwtToken", userData.token);
   };
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem("jwtToken");
   };
 
   return (
@@ -36,7 +38,7 @@ function App() {
           <Route path="/users/login" element={<LogIn onLogin={handleLogin} />} />
           <Route
             path="/users/register"
-            element={<Register onRegister={() => navigate("/login")} />}
+            element={<Register />}
           />
         </Routes>
       </Router>
