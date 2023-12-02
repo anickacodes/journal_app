@@ -17,22 +17,22 @@ const NavBar = ({ user, onLogout }) => {
     <div className="nav">
       <nav>
         <ul>
-          <li>
+          <li className="nav-link">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="nav-link">
             <Link to="/list">Entry List</Link>
           </li>
           {user ? (
             <div className="user-menu">
-              <li>
+              <li className="nav-link">
                 <Link to="/new">New Entry</Link>
               </li>
               <h2>Welcome, {user.username}!</h2>
               <button onClick={() => setShowConfirmation(true)}>Logout</button>
             </div>
           ) : (
-            <li>
+            <li className="nav-link">
               <Link to="/users/login">Login</Link>
             </li>
           )}

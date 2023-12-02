@@ -15,9 +15,9 @@ button:hover {
     padding: 11px;
 }
 
-li {
+.nav-link {
     display: flex;
-    margin: 20px;
+    margin: 7px;
     list-style-type: none;
 }
 
