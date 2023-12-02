@@ -16,7 +16,9 @@ button:hover {
 }
 
 li {
+    display: flex;
     margin: 20px;
+    list-style-type: none;
 }
 
 li::before {

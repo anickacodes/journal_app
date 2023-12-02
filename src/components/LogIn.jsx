@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
 const LogIn = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,9 +22,8 @@ const LogIn = ({ onLogin }) => {
       });
       if (res.ok) {
         const data = await res.json();
-     
-        console.log("Login successful");
         
+        console.log("Login successful");
         onLogin(userData);
         navigate("/");
       } else {
