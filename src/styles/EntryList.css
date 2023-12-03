@@ -4,13 +4,8 @@
 
 }
 
-ol {
-    list-style-type: decimal;
-    color: white;
-    
-}
 .book {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     height: 80vh;
     display: flex;
@@ -21,7 +16,7 @@ ol {
 }
 
 .entryWrapper {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     transform-style:preserve-3d;
     width: 100%;
