@@ -16,11 +16,11 @@ const EntryList = () => {
 
   const fetchEntries = () => {
     const storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
-    const entriesWithOrder = storedEntries.map((entry, index) => ({
+    const entriesOrdered = storedEntries.map((entry, index) => ({
       ...entry,
       submissionOrder: index + 1,
     }));
-    setEntries(entriesWithOrder.reverse());
+    setEntries(entriesOrdered.reverse());
   };
 
   const handleDeleteEntry = (index) => {

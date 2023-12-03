@@ -10,24 +10,27 @@ ol {
     
 }
 .book {
+    border: 2px solid blue;
     display: flex;
-    height: 100vh;
+    height: 80vh;
     display: flex;
-    /* justify-content: center; */
+    justify-content:flex-start;
     align-items: center;
     perspective: 1000px;
+    overflow: hidden;
 }
 
 .entryWrapper {
+    border: 2px solid blue;
     display: flex;
-    transform-style: preserve-3d;
+    transform-style:preserve-3d;
     width: 100%;
 }
 
 .entryCard {
     border: 4px double #6c6969;
-    padding: 10px;
-    margin: 30px;
+    padding: 17px;
+    margin: 33px;
     border-radius: 5px;
     box-shadow: 7px 4px 14px rgba(132, 123, 170, 0.829);
     background-color: rgba(39, 142, 135, 0.341);
@@ -52,7 +55,7 @@ ol {
 .navigationButtons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin: 22px;
 }
 
 button {
