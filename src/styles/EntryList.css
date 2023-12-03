@@ -1,7 +1,18 @@
 .entriesContainer {
-    /* border: 2px white outset; */
     color: rgba(30, 1, 55, 0.745);
     text-shadow: 3px 2px 8px rgb(104, 83, 104);
+    /* border: 2px white outset; */
+}
+
+.book {
+    display: flex;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.entryWrapper {
+    display: flex;
+    transform-style: preserve-3d;
 }
 
 .entryCard {
@@ -11,12 +22,43 @@
     border-radius: 5px;
     box-shadow: 7px 4px 14px rgba(132, 123, 170, 0.829);
     background-color: rgba(39, 142, 135, 0.341);
+    /* width: 100%; */
+    max-width: 400px;
+    cursor: pointer;
+    transition: transform 0.7s, box-shadow 0.5s;
+    transform-origin: right center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+
+.entryCard.visible {
+    opacity: 1;
+}
+
+.entryCard:hover {
+    transform: translateZ(20px) rotateY(30deg);
+    box-shadow: 10px 8px 20px rgba(132, 123, 170, 0.829);
+}
+
+.visible {
+    transform: translateX(0);
+    z-index: 1;
 }
 
 ol {
     list-style-type: decimal;
     color: white;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* display: grid; */
+    /* grid-template-columns: repeat(3, 1fr); */
 }
 
+.navigationButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+}
