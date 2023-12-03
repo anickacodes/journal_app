@@ -16,7 +16,11 @@ const EntryList = () => {
 
   const fetchEntries = () => {
     const storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
-    setEntries(storedEntries.reverse());
+    const entriesWithOrder = storedEntries.map((entry, index) => ({
+      ...entry,
+      submissionOrder: index + 1,
+    }));
+    setEntries(entriesWithOrder.reverse());
   };
 
   const handleDeleteEntry = (index) => {
@@ -28,8 +32,6 @@ const EntryList = () => {
       updatedEntries.splice(index, 1);
       setEntries(updatedEntries);
       localStorage.setItem("entries", JSON.stringify(updatedEntries));
-
-      // Adjust the current index after deleting an entry
       setCurrentIndex(Math.min(currentIndex, updatedEntries.length - 1));
     }
   };
@@ -58,32 +60,28 @@ const EntryList = () => {
   return (
     <div className="entriesContainer">
       <h1>Journal Entry List 📜</h1>
-      <ol reversed>
-        <div className="book" {...bind()}>
-          {entries.map((entry, index) => (
-            <animated.div className="entryWrapper" style={entryProps}>
-              {entries.map((entry, index) => (
-                <div
-                  key={index}
-                  className={`entryCard ${
-                    index === currentIndex ? "visible" : ""
-                  }`}
-                >
-                  <li>
-                    <p>Date: {entry.date}</p>
-                    <p>Content: {entry.content}</p>
-                    <p>Time: {entry.currentTime}</p>
-                    <p>Author: {entry.author || "Anonymous"}</p>
-                    <button onClick={() => handleDeleteEntry(index)}>
-                      Delete Entry
-                    </button>
-                  </li>
-                </div>
-              ))}
-            </animated.div>
-          ))}
-        </div>
-      </ol>
+
+      <div className="book" {...bind()}>
+        {entries.map((entry, index) => (
+          <animated.div className="entryWrapper" style={entryProps} key={index}>
+            <div
+              className={`entryCard ${index === currentIndex ? "visible" : ""}`}
+            >
+              <p id="entryNum">
+                # <em>{entry.submissionOrder}</em>
+              </p>
+              <p>Date: {entry.date}</p>
+              <p>Content: {entry.content}</p>
+              <p>Time: {entry.currentTime}</p>
+              <p>Author: {entry.author || "Anonymous"}</p>
+              <button onClick={() => handleDeleteEntry(index)}>
+                Delete Entry
+              </button>
+            </div>
+          </animated.div>
+        ))}
+      </div>
+
       <div className="navigationButtons">
         <button onClick={handlePrev} disabled={currentIndex === 0}>
           Previous
