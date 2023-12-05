@@ -5,6 +5,7 @@ import "../styles/LogIn.css";
 const LogIn = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(null);
   const navigate = useNavigate();
   const API = import.meta.env.VITE_PORT;
 
@@ -29,9 +30,12 @@ const LogIn = ({ onLogin }) => {
         navigate("/");
       } else {
         console.error("Login failed", res.statusText);
+        setLoginError("Username or password is incorrect")
       }
     } catch (err) {
       console.error(err, "error logging in");
+      setLoginError("An error occured while logging in. Refresh & try again in a moment.")
+
     }
   };
 
@@ -39,6 +43,7 @@ const LogIn = ({ onLogin }) => {
     <>
       <div className="loginContainer">
         <h1>Open Journal </h1>
+        {loginError && <p className="error-message">{loginError}</p>}
         <form onSubmit={handleLogin} className="loginForm">
           <label>
             Username:
@@ -67,6 +72,9 @@ const LogIn = ({ onLogin }) => {
         </form>
         <li>
           <Link to="/users/register">Register</Link>
+        </li>
+        <li>
+          <Link to="/users/reset-password">Reset Password</Link>
         </li>
       </div>
     </>

@@ -10,7 +10,7 @@ const Entry = () => {
         date: new Date().toLocaleDateString(),
         currentTime: currentTime,
       });
-      const [count, setCount] = useState(1);
+      // const [count, setCount] = useState(1);
       const [name, setName] = useState("");
       const navigate = useNavigate();
     
@@ -30,6 +30,7 @@ const Entry = () => {
     const entries = JSON.parse(localStorage.getItem("entries")) || [];
     return entries.length + 1;
   };
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -70,13 +71,14 @@ const Entry = () => {
       <form onSubmit={handleFormSubmit}>
         <h2>Entry #{getCount()} </h2>
         <label>
+     
           <textarea
             name="content"
             value={entry.content}
             onChange={handleInputChange}
             rows={30}
             cols={60}
-            placeholder="express yourself ... "
+            placeholder="Express yourself... Format your text using the toolbar."
           />
         </label>
         <br />
@@ -98,6 +100,11 @@ const Entry = () => {
         </footer>
         <button type="submit">Submit Entry</button>
       </form>
+      <div>
+        <h3>Preview:</h3>
+       <section>{entry.content}</section> 
+      </div>
+    
     </div>
   );
 };

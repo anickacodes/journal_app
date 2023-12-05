@@ -7,6 +7,7 @@ import Entry from "./components/Entry";
 import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import "./App.css";
+import ResetPassword from "./components/ResetPassword";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             element={<LogIn onLogin={handleLogin} />}
           />
           <Route path="/users/register" element={<Register />} />
+          <Route path="/users/reset-password" element={<ResetPassword />} />
         </Routes>
       </Router>
     </>

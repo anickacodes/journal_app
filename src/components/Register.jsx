@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Register = ({ onRegister }) => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const API = import.meta.env.VITE_PORT;
+
 const navigate = useNavigate()
   const handleRegistration = async (e) => {
     e.preventDefault();
