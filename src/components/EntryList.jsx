@@ -18,9 +18,10 @@ const EntryList = () => {
     const storedEntries = JSON.parse(localStorage.getItem("entries")) || [];
     const entriesOrdered = storedEntries.map((entry, index) => ({
       ...entry,
-      submissionOrder: index + 1,
-    }));
-    setEntries(entriesOrdered.reverse());
+      submissionOrder: storedEntries.length - index,
+    }))
+    .sort((a, b) => b.submissionOrder - a.submissionOrder);
+    setEntries(entriesOrdered)
   };
 
   const handleDeleteEntry = (index) => {
