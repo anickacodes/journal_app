@@ -9,7 +9,7 @@ const Dino = () => {
         chrome://dino/ ⬅️ <br />
       </Link>{" "}
       <p>To play Dino, copy the url into your CHROME browser
-      <br /> Clicking will not work. Opening in a new tab will not work</p> <hr/><hr/>
+      <br /> Click functionality will not work.</p> <hr/><hr/>
     </div>
   );
 };
