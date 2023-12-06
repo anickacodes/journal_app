@@ -5,17 +5,19 @@
 
 
 
-Users can : See a list of entries via `/list`
+_Users can :_ 
 
-Users can : Create their own entries via `/new`
+>See a list of entries via `/list`
 
->Users can add a name at the bottom of their entry
->
->Users can see a date and time stamp of when the entry was submitted
->
+>Create their own entries via `/new`
+
+>Add a name at the bottom of their entry
+
+>See a date and time stamp of when the entry was submitted
+
 >Upon form submission, inputs load onto `/list` 
->
->Users can : Navigate easily across pages
+
+>Navigate entries via `previous` and `next` buttons
 
  
 _Features🥇_
