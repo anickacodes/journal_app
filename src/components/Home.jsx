@@ -10,10 +10,10 @@ const Home = () => {
       <div className="home_container">
         <div className="intro" />
         <br />
-        This page is currently under construction
+        This site is currently under construction
         <br />
         <p style={{color: 'violet'}}>Feel free to login/register & browse around</p>
-        This page is currently under construction
+        This site is currently under construction
         <br />
         <p style={{color: 'violet'}}>Or play a game from the options below</p>
       </div>
