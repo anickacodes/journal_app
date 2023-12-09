@@ -73,9 +73,9 @@ const LogIn = ({ onLogin }) => {
         <li>
           <Link to="/users/register">Register</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/users/reset-password">Reset Password</Link>
-        </li>
+        </li> */}
       </div>
     </>
   );
