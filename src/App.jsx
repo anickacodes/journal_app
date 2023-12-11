@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EntryList from "./components/EntryList";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -12,6 +12,13 @@ import ResetPassword from "./components/ResetPassword";
 function App() {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("jwtToken");
+    if (jwtToken) {
+      setUser({ token: jwtToken })
+    }
+  }, [])
+  
   const handleLogin = (userData) => {
     setUser(userData);
     localStorage.setItem("jwtToken", userData.token);
