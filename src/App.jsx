@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import EntryList from "./components/EntryList";
 import Home from "./components/Home";
@@ -8,7 +8,6 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import "./App.css";
 import ResetPassword from "./components/ResetPassword";
-
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,7 +27,13 @@ function App() {
       <Router>
         <NavBar user={user} onLogout={handleLogout} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              user ? <Navigate to="/home" /> : <LogIn onLogin={handleLogin} />
+            }
+          />
+          <Route path="/home" element={<Home />} />
           <Route path="/new" element={<Entry user={user} />} />
           <Route path="/list" element={<EntryList user={user} />} />
           <Route
