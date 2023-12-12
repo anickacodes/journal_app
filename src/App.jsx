@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import EntryList from "./components/EntryList";
 import Home from "./components/Home";
@@ -18,7 +18,7 @@ function App() {
       setUser({ token: jwtToken })
     }
   }, [])
-  
+
   const handleLogin = (userData) => {
     setUser(userData);
     localStorage.setItem("jwtToken", userData.token);
@@ -31,7 +31,6 @@ function App() {
 
   return (
     <>
-      <Router>
         <NavBar user={user} onLogout={handleLogout} />
         <Routes>
           <Route
@@ -50,7 +49,6 @@ function App() {
           <Route path="/users/register" element={<Register />} />
           <Route path="/users/reset-password" element={<ResetPassword />} />
         </Routes>
-      </Router>
     </>
   );
 }

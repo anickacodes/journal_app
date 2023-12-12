@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/LogIn.css";
+import { useUser } from '../userContext';
 
 const LogIn = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -8,6 +9,20 @@ const LogIn = ({ onLogin }) => {
   const [loginError, setLoginError] = useState(null);
   const navigate = useNavigate();
   const API = import.meta.env.VITE_PORT;
+  const { loginUser } = useUser();
+
+//   useEffect(() => {
+//     const savedUsername = localStorage.getItem("savedUsername");
+//     console.log("Saved username from localStorage:", savedUsername);
+//     if (savedUsername) {
+//       setUsername(savedUsername);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem("savedUsername", username);
+//   console.log("Username saved to localStorage:", username);
+// }, [username]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,8 +40,9 @@ const LogIn = ({ onLogin }) => {
       if (res.ok) {
         const data = await res.json();
 
-        console.log("Login successful");
         onLogin(userData);
+        loginUser(userData); 
+        console.log("Login successful & user data loaded");
         navigate("/");
       } else {
         console.error("Login failed", res.statusText);
