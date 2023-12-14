@@ -1,10 +1,11 @@
 import "../styles/Home.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
 import RPS from "../Games/RPS";
 import Dino from "../Games/Dino";
 
 const Home = () => {
+  
   return (
     <>
       <div className="home_container">

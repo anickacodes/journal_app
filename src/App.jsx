@@ -8,6 +8,7 @@ import LogIn from "./components/LogIn";
 import Register from "./components/Register";
 import "./App.css";
 import ResetPassword from "./components/ResetPassword";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -51,6 +52,7 @@ function App() {
         <Route path="/users/register" element={<Register />} />
         <Route path="/users/reset-password" element={<ResetPassword />} />
       </Routes>
+      <Footer />
     </>
   );
 }

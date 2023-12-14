@@ -22,7 +22,13 @@ button:hover {
 }
 
 li::before {
+   
     content: '🔹';
     margin-right: 8px;
+}
+
+li:hover {
+    color: salmon;
+    font: 3px;
 }
   
