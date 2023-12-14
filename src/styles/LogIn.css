@@ -4,7 +4,7 @@
     align-items: center;
     /* width: auto; */
     /* border: 2px solid lightsteelblue; */
-margin: 44px;
+margin: 4px;
 }
 
 .loginContainer {
@@ -20,5 +20,12 @@ margin: 44px;
 li, h1 , button {
     list-style-type: none;
     text-align: center;
-    color: rgba(22, 214, 204, 0.94);
+    /* color: rgba(29, 179, 171, 0.94); */
+    color: salmon;
+
+}
+
+#upwd {
+    color: rgba(255, 255, 90, 0.534);
+    font-size: 12.1px;
 }

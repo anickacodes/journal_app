@@ -81,7 +81,7 @@ const LogIn = ({ onLogin }) => {
             />
           </label>
           <br />
-         Username and password case-sensitive
+         <p id='upwd'>Username and password case-sensitive</p>
           <button type="submit" disabled={!username || !password}>
             Login
           </button>
