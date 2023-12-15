@@ -9,7 +9,7 @@ margin: 4px;
 
 .loginContainer {
     font-size: 20px;
-  
+
 
     @media (max-width: 600px) {
         padding: 10px;

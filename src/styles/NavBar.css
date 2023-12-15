@@ -1,4 +1,4 @@
-.nav {
+nav {
     display: flex;
     justify-content: space-between;
 }
@@ -24,11 +24,11 @@ button:hover {
 li::before {
    
     content: '🔹';
-    margin-right: 8px;
+    margin-right: 2px;
 }
 
-li:hover {
+a:hover {
     color: salmon;
-    font: 3px;
+    font-size: 18px;
 }
   
