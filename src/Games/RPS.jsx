@@ -3,49 +3,43 @@ import React, { useState } from "react";
 const RPS = () => {
   const [result, setResult] = useState(null);
   const [points, setPoints] = useState({ user: 0, cpu: 0 });
+
   const play = (userChoice) => {
     const choices = ["rock", "paper", "scissors"];
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
 
     if (userChoice === computerChoice) {
       setResult("It's a draw!");
+      setPoints((prev) => ({
+        ...prev,
+        user: prev.user + 1,
+        cpu: prev.cpu + 1,
+      }));
     } else if (
       (userChoice === "rock" && computerChoice === "scissors") ||
       (userChoice === "paper" && computerChoice === "rock") ||
       (userChoice === "scissors" && computerChoice === "paper")
     ) {
-      setResult("You win!");
+      setResult('Winner Winner Hooray you win!!')
       setPoints((prevPoints) => ({ ...prevPoints, user: prevPoints.user + 2 }));
     } else {
-      setResult("You lose!");
+      setResult('Yikes. You lost; Sorry!')
       setPoints((prevPoints) => ({ ...prevPoints, cpu: prevPoints.cpu + 2 }));
     }
-
-    const winScheme = {
-      rock: "scissors",
-      paper: "rock",
-      scissors: "paper",
-    };
-
-    if (winScheme[userChoice] === computerChoice) {
-      setPoints((prevPoints) => ({ ...prevPoints, user: prevPoints.user + 1 }));
-    }
-
-    if (points.user >= 5) {
-      setResult("Congratulations! You win the game!");
-      setPoints(points);
-      // You can also implement logic for giving an award to the user here
-    } else if (points.cpu >= 5) {
-      setResult("Sorry, you lost the game. Better luck next time!");
-      setPoints(points);
-
-      // You can also implement logic for giving an award to the CPU here
-    }
+  }
+    const handleRoundEnd = () => {
+      if (points.user >= 5) {
+        setResult(`Congratulations! You win the game! Your score: ${points.user}, CPU score: ${points.cpu}`);
+        setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
+      } else if (points.cpu >= 5) {
+        setResult(`Sorry, you lost the game. Better luck next time! CPU score: ${points.cpu} Your score: ${points.user}`);
+        setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
+      } else {
+        setResult(null);
+        return;
+      }
+      setPoints({ user: 0, cpu: 0 });
   };
-
-  // 2 points when beating scissors with rock
-  // 1 point when beating rock with paper
-  // 1 point when beating paper with scissors
 
   return (
     <div>
@@ -59,7 +53,10 @@ const RPS = () => {
           padding: "10px",
           cursor: "pointer",
         }}
-        onClick={() => play("rock")}
+        onClick={() => {
+          play("rock");
+          handleRoundEnd();
+        }}
       >
         Rock
       </button>
@@ -70,7 +67,10 @@ const RPS = () => {
           padding: "10px",
           cursor: "pointer",
         }}
-        onClick={() => play("paper")}
+        onClick={() => {
+          play("paper");
+          handleRoundEnd();
+        }}
       >
         Paper
       </button>
@@ -81,11 +81,33 @@ const RPS = () => {
           padding: "10px",
           cursor: "pointer",
         }}
-        onClick={() => play("scissors")}
+        onClick={() => {
+          play("scissors");
+          handleRoundEnd();
+        }}
       >
         Scissors
       </button>
-      <p id="result">{result}</p>
+      {result && (
+        <div>
+          <p id="result">{result}</p>
+          <button
+            onClick={() => {
+              setPoints({ user: 0, cpu: 0 });
+              setResult(null);
+            }}
+          >
+            Play Again
+          </button>
+          <button
+            onClick={() => {
+              setResult(null);
+            }}
+          >
+            No Thanks
+          </button>
+        </div>
+      )}
     </div>
   );
 };
