@@ -29,10 +29,18 @@ const RPS = () => {
   }
     const handleRoundEnd = () => {
       if (points.user >= 5) {
-        setResult(`Congratulations! You win the game! Your score: ${points.user}, CPU score: ${points.cpu}`);
+        setResult(<div>
+          Congratulations! You win the game!
+          <br />
+          Your Score: {points.user} | CPU score: {points.cpu}
+        </div>);
         setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
       } else if (points.cpu >= 5) {
-        setResult(`Sorry, you lost the game. Better luck next time! CPU score: ${points.cpu} Your score: ${points.user}`);
+        setResult(<div>
+          Sorry, you lost the game. Better luck next time!
+          <br />
+          Your Score: {points.user} | CPU score: {points.cpu}
+        </div>);
         setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
       } else {
         setResult(null);
@@ -44,8 +52,10 @@ const RPS = () => {
   return (
     <div>
       <h1>Rock, Paper, Scissors</h1>
+      <div className="scores_container" style={{fontSize:20, color: 'teal', fontWeight: 'bold', textShadow: 'unset'}}>
       <div>YOUR SCORE {points.user}</div>
       <div>CPU SCORE &nbsp;&nbsp; {points.cpu}</div>
+      </div>
       <button
         style={{
           fontSize: "18px",
@@ -90,7 +100,7 @@ const RPS = () => {
       </button>
       {result && (
         <div>
-          <p id="result">{result}</p>
+          <p id="result" style={{ fontSize: 19, color: 'salmon', marginTop: '10px' }}>{result}</p>
           <button
             onClick={() => {
               setPoints({ user: 0, cpu: 0 });
