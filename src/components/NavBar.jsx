@@ -18,7 +18,7 @@ const NavBar = ({ user, onLogout }) => {
       <nav>
         <ul>
           <li className="nav-link">
-            <Link to="/">Home</Link>
+            <Link to="/">Games</Link>
           </li>
           <li className="nav-link">
             <Link to="/list">Entry List</Link>
