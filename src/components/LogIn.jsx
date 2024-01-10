@@ -19,10 +19,10 @@ const LogIn = ({ onLogin }) => {
 //     }
 //   }, []);
 
-//   useEffect(() => {
-//     localStorage.setItem("savedUsername", username);
-//   console.log("Username saved to localStorage:", username);
-// }, [username]);
+  useEffect(() => {
+    localStorage.setItem("savedUsername", username);
+  console.log("Username saved to localStorage:", username);
+}, [username]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const LogIn = ({ onLogin }) => {
         const data = await res.json();
 
         onLogin(userData);
-        loginUser(userData); 
+        loginUser(data); 
         console.log("Login successful & user data loaded");
         navigate("/");
       } else {
