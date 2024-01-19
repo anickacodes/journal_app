@@ -1,52 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
-import "../styles/NavBar.css";
-import { useState } from "react";
+import { Link } from "react-router-dom"
 
-const NavBar = ({ user, onLogout }) => {
-  const navigate = useNavigate();
-  const [showConfirmation, setShowConfirmation] = useState(false);
-  const handleLogout = (confirmed) => {
-    if (confirmed) {
-      onLogout();
-      navigate("/");
-    }
-    setShowConfirmation(false);
-  };
+
+
+const NavBar = () => {
+
 
   return (
-    <div className="nav">
-      <nav>
-        <ul>
-          <li className="nav-link">
-            <Link to="/">Games</Link>
-          </li>
-          <li className="nav-link">
-            <Link to="/list">Entry List</Link>
-          </li>
-          {user ? (
-            <div className="user-menu">
-              <li className="nav-link">
-                <Link to="/new">New Entry</Link>
-              </li>
-              <h2>Welcome, {user.username}!</h2>
-              <button onClick={() => setShowConfirmation(true)}>Logout</button>
-            </div>
-          ) : (
-            <li className="nav-link">
-              <Link to="/users/login">Login</Link>
-            </li>
-          )}
-        </ul>
-      </nav>
-      {showConfirmation && (
-        <div className="confirmation-dialog">
-          <p>Are you sure you want to logout?</p>
-          <button onClick={() => handleLogout(true)}>✅ Yes</button>
-          <button onClick={() => handleLogout(false)}>❌ No</button>
-        </div>
-      )}
-    </div>
-  );
-};
+    <nav  className="nav-link">
+      <ul>
+        <li>
+          <Link to='/'> Main </Link>
+        </li>
+        <li>
+          <Link to='/list'> Entries </Link>
+        </li>
+        <li>
+          <Link to='/new'> New Entry</Link>
+        </li><li>
+          <Link to='/games'> Mini Games</Link>
+        </li>
+      </ul>
+    </nav>
+  )
+}
 
-export default NavBar;
+export default NavBar

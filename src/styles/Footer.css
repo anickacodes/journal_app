@@ -4,7 +4,7 @@
     /* width: max-content; */
     background-color: #ee86c60e;
     text-align: center;
-    position: fixed;
+    position: sticky;
     width: 100%;
     bottom: 0;
 border-top: 1px solid #ccc;
