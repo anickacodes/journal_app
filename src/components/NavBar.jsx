@@ -16,6 +16,8 @@ const NavBar = () => {
         </li>
         <li>
           <Link to='/new'> New Entry</Link>
+        </li><li>
+          <Link to='/games'> Mini Games</Link>
         </li>
       </ul>
     </nav>
