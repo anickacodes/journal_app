@@ -60,7 +60,7 @@ const EntryList = () => {
 
   return (
     <div className="entriesContainer">
-      <h1>📜Public User Entries📜</h1>
+      <h1> 📜 &nbsp;&nbsp;&nbsp; Entries</h1>
 
       <div className="book" {...bind()}>
         {entries.map((entry, index) => (
