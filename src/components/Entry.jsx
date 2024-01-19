@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Entry.css";
 import { useNavigate } from "react-router-dom";
+import AudioRecorder from "./AudioRecorder";
 
 const Entry = () => {
     const currentTime = new Date().toLocaleTimeString();
@@ -63,13 +64,16 @@ const Entry = () => {
 
   return (
     <div className="entry_container">
-      <h1>Journal Entry📓</h1>
+      <h2>Journal Entry📓</h2>
       {/* <div>
         <button onClick={handleTextBold}>Bold</button>
         <button onClick={handleTextItalic}>Italic</button>
       </div> */}
       <form onSubmit={handleFormSubmit}>
-        <h2>Entry #{getCount()} </h2>
+        <h3>Entry #{getCount()} </h3>
+        <label>
+      <AudioRecorder />
+      </label>
         <label>
      
           <textarea
@@ -81,6 +85,7 @@ const Entry = () => {
             placeholder="Express yourself... Format your text using the toolbar."
           />
         </label>
+
         <br />
         <br />
         <label id="yourName">
