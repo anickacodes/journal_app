@@ -6,33 +6,10 @@ import NavBar from "./components/NavBar";
 import Entry from "./components/Entry";
 import Footer from "./components/Footer";
 import "./App.css";
-import Dino from "./Games/Dino";
 import RPS from "./Games/RPS";
+import PacMan from "./Games/PacMan";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const jwtToken = localStorage.getItem("jwtToken");
-  //   if (jwtToken) {
-  //     setUser({ token: jwtToken });
-  //     console.log("Token retrieved from localStorage:", jwtToken);
-  //   } else {
-  //     navigate("/");
-  //   }
-  // }, []);
-
-  // const handleLogin = (userData) => {
-  //   console.log("Received token during login:", userData);
-  //   setUser(userData);
-  //   localStorage.setItem("jwtToken", userData.token);
-  // };
-
-  // const handleLogout = () => {
-  //   setUser(null);
-  //   localStorage.removeItem("jwtToken");
-  // };
 
   return (
     <>
@@ -41,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/games" element={
             <div>
-              <Dino />
+              <PacMan />
               <RPS />
             </div>
           }
