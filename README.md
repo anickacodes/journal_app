@@ -30,7 +30,7 @@ _Features🥇_
 - form
 - local storage
 - gamification
-~~- api generated content~~
+- ~~-api generated content~~
 
 _Currently Implementing_
 [Trello](https://trello.com/b/X9ikQq0Kjournal-app-kanban-template)
