@@ -1,30 +1,26 @@
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 button {
-    font-weight: 700;
-    color: #ff5c5c;
-    padding: 8px;
-    border-radius: 7px;
+    font-weight: 800;
+    color: #b93c3c;
+    padding: 9px 11px ;
+    border-radius: 13px;
+    margin: 7px;
+    background-color: rgba(88, 45, 45, 0.686);
 }
 
 button:hover {
     color: rgb(103, 173, 178);
-    padding: 11px;
+    padding: 5.5px;
 }
 
-.nav-link {
-    display: flex;
-    margin: 7px;
-    list-style-type: none;
-}
-
-li::before {
-   
-    content: '🔹';
+:link::before {
+    content: '✨';
     margin-right: 2px;
+    
 }
 
 a:hover {
