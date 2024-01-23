@@ -1,10 +1,11 @@
 
 
 const PacMan = () => {
-  return (
-    <div>
-     
-    </div>
-  );
+
+
+  return <canvas>
+
+
+  </canvas>;
 };
- export default PacMan
+export default PacMan;

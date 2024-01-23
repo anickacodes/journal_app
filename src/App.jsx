@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/games" element={
-            <div>
+            <div className="games-container">
               <PacMan />
               <RPS />
             </div>
