@@ -4,111 +4,111 @@ const RPS = () => {
   const [result, setResult] = useState(null);
   const [points, setPoints] = useState({ user: 0, cpu: 0 });
 
+  const chooseWinner = (userChoice, cpuChoice) => {
+    if (userChoice === cpuChoice) {
+      return "draw";
+    } else if (
+      (userChoice === "rock" && cpuChoice === "scissors") ||
+      (userChoice === "paper" && cpuChoice === "rock") ||
+      (userChoice === "scissors" && cpuChoice === "paper")
+    ) {
+      return "user";
+    } else {
+      return "cpu";
+    }
+  };
+
   const play = (userChoice) => {
     const choices = ["rock", "paper", "scissors"];
-    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    const cpuChoice = choices[Math.floor(Math.random() * choices.length)];
+    const winner = chooseWinner(userChoice, cpuChoice);
 
-    if (userChoice === computerChoice) {
-      setResult("It's a draw!");
-      setPoints((prev) => ({
-        ...prev,
-        user: prev.user + 1,
-        cpu: prev.cpu + 1,
-      }));
-    } else if (
-      (userChoice === "rock" && computerChoice === "scissors") ||
-      (userChoice === "paper" && computerChoice === "rock") ||
-      (userChoice === "scissors" && computerChoice === "paper")
-    ) {
-      setResult('Winner Winner Hooray you win!!')
-      setPoints((prevPoints) => ({ ...prevPoints, user: prevPoints.user + 2 }));
-    } else {
-      setResult('Yikes. You lost; Sorry!')
-      setPoints((prevPoints) => ({ ...prevPoints, cpu: prevPoints.cpu + 2 }));
-    }
-  }
-    const handleRoundEnd = () => {
-      if (points.user >= 5) {
-        setResult(<div>
-          Congratulations! You win the game!
-          <br />
-          Your Score: {points.user} | CPU score: {points.cpu}
-        </div>);
-        setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
-      } else if (points.cpu >= 5) {
-        setResult(<div>
-          Sorry, you lost the game. Better luck next time!
-          <br />
-          Your Score: {points.user} | CPU score: {points.cpu}
-        </div>);
-        setPoints((prevPoints) => ({ ...prevPoints, user: 0, cpu: 0 }));
-      } else {
-        setResult(null);
-        return;
-      }
-      setPoints({ user: 0, cpu: 0 });
+    setPoints((prevPoints) => {
+      const newPoints = { ...prevPoints };
+
+      if (winner === "user") {
+        newPoints.user += 1;
+      } else if (winner === "cpu") {
+        newPoints.cpu += 1;
+      } 
+
+      if (newPoints.user === 5) {
+        setResult("Congratulations, You Won the Game! 🏆");
+      } else if (newPoints.cpu === 5) {
+        setResult("Game Over, CPU Wins.");
+      } 
+      return newPoints;
+    });
+  };
+
+  const resetPoints = () => {
+    setPoints({ user: 0, cpu: 0 });
+    setResult(null);
+  };
+
+  const style = {
+    resultMessage: {
+      fontSize: 19,
+      color: "salmon",
+      marginTop: "10px",
+    },
+    buttonStyle: {
+      fontSize: "16px",
+      margin: "10px",
+      padding: "10px",
+      cursor: "pointer",
+    },
+    scoresContainer: {
+      fontSize: 20,
+      color: "teal",
+      fontWeight: "bold",
+      textShadow: "unset",
+      display: "flex",
+      justifyContent: "space-between",
+    },
   };
 
   return (
-    <div>
+    <div className="rps-game">
       <h1>Rock, Paper, Scissors</h1>
-      <div className="scores_container" style={{fontSize:20, color: 'teal', fontWeight: 'bold', textShadow: 'unset'}}>
-      <div>YOUR SCORE {points.user}</div>
-      <div>CPU SCORE &nbsp;&nbsp; {points.cpu}</div>
+      <div className="scores_container" style={style.scoresContainer}>
+        <div>YOUR SCORE {points.user}</div>
+        <div>CPU SCORE {points.cpu}</div>
       </div>
       <button
-        style={{
-          fontSize: "18px",
-          margin: "10px",
-          padding: "10px",
-          cursor: "pointer",
-        }}
+        style={style.buttonStyle}
         onClick={() => {
           play("rock");
-          handleRoundEnd();
         }}
       >
         Rock
       </button>
       <button
-        style={{
-          fontSize: "18px",
-          margin: "10px",
-          padding: "10px",
-          cursor: "pointer",
-        }}
+        style={style.buttonStyle}
         onClick={() => {
           play("paper");
-          handleRoundEnd();
         }}
       >
         Paper
       </button>
       <button
-        style={{
-          fontSize: "18px",
-          margin: "10px",
-          padding: "10px",
-          cursor: "pointer",
-        }}
+        style={style.buttonStyle}
         onClick={() => {
           play("scissors");
-          handleRoundEnd();
         }}
       >
         Scissors
       </button>
-      {result && (
+      {result && (points.user >= 5 || points.cpu >= 5) && (
         <div>
-          <p id="result" style={{ fontSize: 19, color: 'salmon', marginTop: '10px' }}>{result}</p>
-          <button
-            onClick={() => {
-              setPoints({ user: 0, cpu: 0 });
-              setResult(null);
-            }}
-          >
-            Play Again
-          </button>
+          <p className="result-message" style={style.resultMessage}>
+            {points.user >= 5
+              ? "Congratulations! You win the game!"
+              : "Sorry, you lost the game. Better luck next time!"}
+            <br />
+            Your Score: {points.user} | CPU Score: {points.cpu}
+          </p>
+          <button onClick={resetPoints}>Play Again</button>
           <button
             onClick={() => {
               setResult(null);
@@ -117,6 +117,11 @@ const RPS = () => {
             No Thanks
           </button>
         </div>
+      )}
+      {result && points.user < 5 && points.cpu < 5 && (
+        <p className="result-message" style={style.resultMessage}>
+          {result}
+        </p>
       )}
     </div>
   );
