@@ -3,14 +3,14 @@
     border-radius: 13px;
     margin: 22px;
     padding: 12px;
-    gap: 22px;
+    /* gap: 22px; */
 }
 
-label,
+/* label,
 h1,
 h2, p {
     color: bisque;
-}
+} */
 
 textarea {
     background-color: rgba(81, 176, 176, 0.18);

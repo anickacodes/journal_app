@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import RPS from "./Games/RPS";
 import PacMan from "./Games/PacMan";
+import SignIn from "./components/SignIn";
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/sign" element={<SignIn />} />
         <Route path="/games" element={
             <div className="games-container">
               <PacMan />

@@ -1,14 +1,15 @@
 nav {
     display: flex;
     justify-content: space-around;
+
 }
 
 button {
     font-weight: 800;
-    color: #b93c3c;
     padding: 9px 11px ;
     border-radius: 13px;
     margin: 7px;
+    color: #f6ecff;
     background-color: rgba(88, 45, 45, 0.686);
 }
 
@@ -24,7 +25,7 @@ button:hover {
 }
 
 a:hover {
-    color: salmon;
+    color: #bb68f2;
     font-size: 18px;
 }
   
